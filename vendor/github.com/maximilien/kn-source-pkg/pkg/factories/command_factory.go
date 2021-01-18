@@ -50,3 +50,7 @@ func (f *DefautCommandFactory) UpdateCommand() *cobra.Command {
 func (f *DefautCommandFactory) DescribeCommand() *cobra.Command {
 	return source.NewDescribeCommand(f.knSourceFactory.KnSourceParams())
 }
+
+func (f *DefautCommandFactory) ListCommand() *cobra.Command {
+	return source.NewDescribeCommand(f.knSourceFactory.KnSourceParams())
+}

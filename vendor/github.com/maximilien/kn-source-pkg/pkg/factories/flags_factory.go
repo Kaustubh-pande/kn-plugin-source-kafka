@@ -55,6 +55,12 @@ func (f *DefautFlagsFactory) DescribeFlags() *pflag.FlagSet {
 	return flagSet
 }
 
+func (f *DefautFlagsFactory) ListFlags() *pflag.FlagSet {
+	flagSet := pflag.NewFlagSet("list", pflag.ExitOnError)
+	f.addNamespaceFlag(flagSet)
+	return flagSet
+}
+
 // Private
 
 func (f *DefautFlagsFactory) addNamespaceFlag(flagSet *pflag.FlagSet) {

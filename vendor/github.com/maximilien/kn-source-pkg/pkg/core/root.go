@@ -68,6 +68,12 @@ func NewKnSourceCommand(knSourceFactory types.KnSourceFactory,
 	describeCmd.RunE = runEFactory.DescribeRunE()
 	rootCmd.AddCommand(describeCmd)
 
+	listCmd := commandFactory.ListCommand()
+	addCommonFlags(knSourceParams, listCmd)
+	listCmd.Flags().AddFlagSet(flagsFactory.ListFlags())
+	listCmd.RunE = runEFactory.ListRunE()
+	rootCmd.AddCommand(listCmd)
+
 	// Initialize default `help` cmd early to prevent unknown command errors
 	rootCmd.InitDefaultHelpCmd()
 

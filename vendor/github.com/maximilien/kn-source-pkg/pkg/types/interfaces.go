@@ -52,6 +52,7 @@ type CommandFactory interface {
 	DeleteCommand() *cobra.Command
 	UpdateCommand() *cobra.Command
 	DescribeCommand() *cobra.Command
+	ListCommand() *cobra.Command
 
 	KnSourceFactory() KnSourceFactory
 }
@@ -63,6 +64,7 @@ type FlagsFactory interface {
 	DeleteFlags() *pflag.FlagSet
 	UpdateFlags() *pflag.FlagSet
 	DescribeFlags() *pflag.FlagSet
+	ListFlags() *pflag.FlagSet
 
 	KnSourceFactory() KnSourceFactory
 }
@@ -74,6 +76,7 @@ type RunEFactory interface {
 	DeleteRunE() RunE
 	UpdateRunE() RunE
 	DescribeRunE() RunE
+	ListRunE() RunE
 
 	KnSourceFactory() KnSourceFactory
 	KnSourceClient(restConfig *rest.Config, namespace string) KnSourceClient
