@@ -86,6 +86,7 @@ function install_sources_crds() {
 function plugin_test_setup() {
   header "🧪  Setup Kafka and source CRDs"
   kafka_setup || return 1
+  sleep 30
   install_sources_crds || return 1
 }
 
