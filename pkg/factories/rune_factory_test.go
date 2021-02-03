@@ -66,3 +66,9 @@ func TestDescribeRunE(t *testing.T) {
 	function := runEFactory.DescribeRunE()
 	assert.Assert(t, function != nil)
 }
+
+func TestListRunE(t *testing.T) {
+	runEFactory := NewFakeKafkaSourceRunEFactory("fake_namespace")
+	function := runEFactory.ListRunE()
+	assert.Assert(t, function != nil)
+}

@@ -42,6 +42,12 @@ func TestCreateFlags(t *testing.T) {
 	assert.Assert(t, flags.Lookup("topics") != nil)
 }
 
+func TestListFlags(t *testing.T) {
+	flagsFactory := createKafkaSourceFlagsFactory()
+	flags := flagsFactory.ListFlags()
+	assert.Assert(t, flags != nil)
+}
+
 // Private
 
 func createKafkaSourceFlagsFactory() types.KafkaSourceFlagsFactory {
