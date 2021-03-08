@@ -107,6 +107,7 @@ func (f *kafkaSourceRunEFactory) CreateRunE() sourcetypes.RunE {
 			BootstrapServers(f.kafkaSourceFactory.KafkaSourceParams().BootstrapServers).
 			Topics(f.kafkaSourceFactory.KafkaSourceParams().Topics).
 			ConsumerGroup(f.kafkaSourceFactory.KafkaSourceParams().ConsumerGroup).
+			Consumers(f.kafkaSourceClient.KafkaSourceParams().Consumers).
 			Sink(objectRef)
 
 		err = f.kafkaSourceClient.CreateKafkaSource(b.Build())
@@ -293,6 +294,7 @@ func writeKafkaSource(dw printers.PrefixWriter, source *v1alpha1.KafkaSource) {
 	dw.WriteAttribute("BootstrapServers", strings.Join(source.Spec.BootstrapServers, ", "))
 	dw.WriteAttribute("Topics", strings.Join(source.Spec.Topics, ","))
 	dw.WriteAttribute("ConsumerGroup", source.Spec.ConsumerGroup)
+	dw.WriteAttribute("Consumers", string(*source.Spec.Consumers))
 }
 
 // printKafkaSource populates a single row of kafka source list table

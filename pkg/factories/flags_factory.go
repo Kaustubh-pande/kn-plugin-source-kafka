@@ -48,6 +48,7 @@ func (f *kafkaSourceFlagsFactory) CreateFlags() *pflag.FlagSet {
 	flagSet.StringArrayVar(&f.KafkaSourceParams().BootstrapServers, "servers", []string{}, "Kafka bootstrap servers that the consumer will connect to, consist of a hostname plus a port pair, e.g. my-kafka-bootstrap.kafka:9092. Flag can be used multiple times.")
 	flagSet.StringArrayVar(&f.KafkaSourceParams().Topics, "topics", []string{}, "Topics to consume messages from. Flag can be used multiple times.")
 	flagSet.StringVar(&f.KafkaSourceParams().ConsumerGroup, "consumergroup", "", "the consumer group ID")
+	flagSet.Int32Var(&f.KafkaSourceParams().Consumers, "consumers", 1, "Number of desired consumers running in the consumer group. Default value 1.")
 	return flagSet
 }
 

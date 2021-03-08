@@ -157,3 +157,9 @@ func (b *KafkaSourceBuilder) Sink(sink *duckv1.Destination) *KafkaSourceBuilder 
 func (b *KafkaSourceBuilder) Build() *v1alpha1.KafkaSource {
 	return b.kafkaSource
 }
+
+// Number of desired consumers running in the consumer group
+func (b *KafkaSourceBuilder) Consumers(consumers int32) *KafkaSourceBuilder {
+	b.kafkaSource.Spec.Consumers = &consumers
+	return b
+}

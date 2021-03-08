@@ -78,6 +78,7 @@ kn source kafka create mykafkasrc --servers my-cluster-kafka-bootstrap.kafka.svc
 ```
   -A, --all-namespaces         If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
       --consumergroup string   the consumer group ID
+      --consumers int32        Number of desired consumers running in the consumer group. Default value 1. (default 1)
   -h, --help                   help for create
   -n, --namespace string       Specify the namespace to operate in.
       --servers stringArray    Kafka bootstrap servers that the consumer will connect to, consist of a hostname plus a port pair, e.g. my-kafka-bootstrap.kafka:9092. Flag can be used multiple times.
